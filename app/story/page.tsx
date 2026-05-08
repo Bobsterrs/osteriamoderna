@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const StoryPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <main className="bg-transparent text-white min-h-screen relative overflow-x-hidden">
@@ -49,7 +49,7 @@ const StoryPage = () => {
                         <span className="block font-bold uppercase text-base text-white mb-2">{t.story.values.v1.t}</span>
                         <p className="text-sm text-white/50 leading-relaxed">{t.story.values.v1.d}</p>
                         <p className="text-xs text-white/30 mt-4 italic leading-relaxed">
-                          {t.language === "it" ? "Crediamo che la verità dell'ingrediente sia il pilastro su cui si regge ogni nostra creazione." : "We believe the truth of the ingredient is the pillar upon which each of our creations rests."}
+                          {language === "it" ? "Crediamo che la verità dell'ingrediente sia il pilastro su cui si regge ogni nostra creazione." : "We believe the truth of the ingredient is the pillar upon which each of our creations rests."}
                         </p>
                      </li>
                      <li>

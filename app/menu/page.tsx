@@ -51,16 +51,16 @@ const MenuPage = () => {
 
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 py-12 border-y border-white/10 bg-black/40 backdrop-blur-xl">
              <div className="px-6 text-center">
-                <h4 className="font-bold uppercase text-xs tracking-widest mb-3 text-accent">{t.language === "it" ? "Materia Prima" : "Raw Material"}</h4>
-                <p className="text-xs text-white/40 leading-relaxed italic">{t.language === "it" ? "Selezioniamo solo piccoli produttori locali d'eccellenza." : "We select only small local producers of excellence."}</p>
+                <h4 className="font-bold uppercase text-xs tracking-widest mb-3 text-accent">{language === "it" ? "Materia Prima" : "Raw Material"}</h4>
+                <p className="text-xs text-white/40 leading-relaxed italic">{language === "it" ? "Selezioniamo solo piccoli produttori locali d'eccellenza." : "We select only small local producers of excellence."}</p>
              </div>
              <div className="px-6 border-x border-white/10 text-center">
-                <h4 className="font-bold uppercase text-xs tracking-widest mb-3 text-accent">{t.language === "it" ? "Tecnica" : "Technique"}</h4>
-                <p className="text-xs text-white/40 leading-relaxed italic">{t.language === "it" ? "Fusione di metodi ancestrali e tecnologie moderne." : "Fusion of ancestral methods and modern technologies."}</p>
+                <h4 className="font-bold uppercase text-xs tracking-widest mb-3 text-accent">{language === "it" ? "Tecnica" : "Technique"}</h4>
+                <p className="text-xs text-white/40 leading-relaxed italic">{language === "it" ? "Fusione di metodi ancestrali e tecnologie moderne." : "Fusion of ancestral methods and modern technologies."}</p>
              </div>
              <div className="px-6 text-center">
-                <h4 className="font-bold uppercase text-xs tracking-widest mb-3 text-accent">{t.language === "it" ? "Plating" : "Plating"}</h4>
-                <p className="text-xs text-white/40 leading-relaxed italic">{t.language === "it" ? "Ogni piatto è una composizione architettonica pura." : "Each dish is a pure architectural composition."}</p>
+                <h4 className="font-bold uppercase text-xs tracking-widest mb-3 text-accent">{language === "it" ? "Plating" : "Plating"}</h4>
+                <p className="text-xs text-white/40 leading-relaxed italic">{language === "it" ? "Ogni piatto è una composizione architettonica pura." : "Each dish is a pure architectural composition."}</p>
              </div>
           </div>
         </section>
