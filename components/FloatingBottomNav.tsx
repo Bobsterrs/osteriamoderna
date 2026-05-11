@@ -3,16 +3,20 @@
 import { motion } from "framer-motion";
 import { ArrowUp, Menu, BookOpen, Calendar, MapPin } from "lucide-react";
 
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const FloatingBottomNav = () => {
+  const { t } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const navItems = [
-    { label: "STORY", href: "#story", icon: <BookOpen size={14} /> },
-    { label: "MENU", href: "#menu", icon: <Menu size={14} /> },
-    { label: "RESERVE", href: "#reserve", icon: <Calendar size={14} /> },
-    { label: "LOCATION", href: "#location", icon: <MapPin size={14} /> },
+    { label: t.nav.story, href: "#story", icon: <BookOpen size={14} /> },
+    { label: t.nav.menu, href: "#menu", icon: <Menu size={14} /> },
+    { label: t.nav.book, href: "#reserve", icon: <Calendar size={14} /> },
+    { label: t.nav.location, href: "#location", icon: <MapPin size={14} /> },
   ];
 
   return (
@@ -30,7 +34,7 @@ const FloatingBottomNav = () => {
             className="flex items-center gap-2 px-4 py-2 text-[10px] font-bold tracking-[0.2em] text-white/40 hover:text-white hover:bg-white/5 rounded-full transition-all"
           >
             {item.icon}
-            <span className="hidden sm:inline">{item.label}</span>
+            <span className="hidden sm:inline uppercase whitespace-nowrap">{item.label}</span>
           </a>
         ))}
       </div>

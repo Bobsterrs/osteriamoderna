@@ -5,6 +5,7 @@ export const translations = {
       chef: "Chef",
       menu: "Menu",
       book: "Prenota un Tavolo",
+      location: "Posizione",
     },
     hero: {
       title: "L'OSTERIA MODERNA",
@@ -80,6 +81,7 @@ export const translations = {
       chef: "Chef",
       menu: "Menu",
       book: "Book a Table",
+      location: "Location",
     },
     hero: {
       title: "MODERN OSTERIA",
