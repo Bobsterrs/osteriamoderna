@@ -71,7 +71,10 @@ export const translations = {
         email: "Email",
         date: "Data",
         guests: "Ospiti",
+        phone: "Telefono",
+        allergies: "Allergie o Richieste Speciali",
         btn: "Richiedi Tavolo",
+        phoneBtn: "Prenota Telefonicamente",
       }
     }
   },
@@ -147,7 +150,10 @@ export const translations = {
         email: "Email",
         date: "Date",
         guests: "Guests",
+        phone: "Phone",
+        allergies: "Allergies or Special Requests",
         btn: "Request Table",
+        phoneBtn: "Book by Phone",
       }
     }
   }

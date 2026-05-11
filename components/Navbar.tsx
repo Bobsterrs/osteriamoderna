@@ -1,13 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const { language, setLanguage, t } = useLanguage();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
+    <>
     <motion.nav 
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -47,7 +51,7 @@ const Navbar = () => {
       {/* Right Section: Socials + CTA */}
       <div className="flex-shrink-0 flex justify-end items-center gap-2 md:gap-6">
         <div className="hidden md:flex items-center gap-5 border-r border-white/10 pr-6 mr-2">
-           <a href="#" className="text-white/40 hover:text-white transition-colors">
+           <a href="https://www.instagram.com/arcobalenosenzaglutine" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white transition-colors">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
            </a>
         </div>
@@ -59,8 +63,58 @@ const Navbar = () => {
           <span className="hidden sm:inline">{t.nav.book}</span>
           <span className="sm:hidden">Prenota</span>
         </Link>
+
+        {/* Mobile Menu Toggle */}
+        <button 
+          onClick={() => setIsMobileMenuOpen(true)}
+          className="lg:hidden text-white hover:text-accent transition-colors ml-1 md:ml-2"
+        >
+          <Menu size={20} className="md:w-6 md:h-6" />
+        </button>
       </div>
     </motion.nav>
+
+    {/* Full Screen Mobile Menu Overlay */}
+    <AnimatePresence>
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center"
+        >
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="absolute top-8 right-8 text-white/50 hover:text-white"
+          >
+            <X size={32} />
+          </button>
+          
+          <div className="flex flex-col items-center gap-10 text-center">
+            <Link href="/story" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl md:text-3xl font-light uppercase tracking-[0.2em] hover:text-accent transition-colors">
+              {t.nav.story}
+            </Link>
+            <Link href="/chef" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl md:text-3xl font-light uppercase tracking-[0.2em] hover:text-accent transition-colors">
+              {t.nav.chef}
+            </Link>
+            <Link href="/menu" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl md:text-3xl font-light uppercase tracking-[0.2em] hover:text-accent transition-colors">
+              {t.nav.menu}
+            </Link>
+            <Link href="/reserve" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl md:text-3xl font-light uppercase tracking-[0.2em] text-accent hover:text-white transition-colors">
+              {t.nav.book}
+            </Link>
+            
+            <div className="mt-12 flex gap-6">
+               <a href="https://www.instagram.com/arcobalenosenzaglutine" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white transition-colors">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+               </a>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 };
 
